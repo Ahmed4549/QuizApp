@@ -34,3 +34,15 @@ else{
 }
 alert("Your total score is: "+score);
 }
+
+function diselect(){
+  var btn1 = document.getElementById("q1-a1").checked=false;
+  var btn2 = document.getElementById("q1-a2").checked=false;
+  var btn3 = document.getElementById("q1-a3").checked=false;
+  var btn4 = document.getElementById("q2-a1").checked=false;
+  var btn5 = document.getElementById("q2-a2").checked=false;
+  var btn6 = document.getElementById("q2-a3").checked=false;
+  var btn7 = document.getElementById("q3-a1").checked=false;
+  var btn8 = document.getElementById("q3-a2").checked=false;
+  var btn9 = document.getElementById("q3-a3").checked=false;
+}
