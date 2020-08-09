@@ -7,33 +7,36 @@
     <title>Quiz Application</title>
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="imgs/Favicon-1-300x300.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
-<body>
-    <div class="quiz">
-        <div class="question">
-        <h3>What is 4+4?</h3>
-        <div class="answers">
-            <input type="radio" name="q1" id="q1-a1">8</input>
-            <input type="radio" name="q1" id="q1-a2">15</input>
-            <input type="radio" name="q1" id="q1-a3">12</input>
+<body onload="showQuestion(0)">
+    <br>
+    <h2 class="heading"><span style="color: #0f9af0;">Quiz</span> Application</h2>
+<br>
+    <div class="card text-center">
+        <div class="card-header">
+            <h3 id="QueNumber"></h3>
         </div>
-        <h3>What is 7+4?</h3>
-        <div class="answers">
-            <input type="radio" name="q2" id="q2-a1">8</input>
-            <input type="radio" name="q2" id="q2-a2">11</input>
-            <input type="radio" name="q2" id="q2-a3">12</input>
+        <div class="card-body">
+            <h4 class="card-title" id="questionElement"></h4><br>
+            <button type="button" class="btn btn-primary btn-lg btn-block optionElement" onclick="activeClass(this)"></button>
+            <button type="button" class="btn btn-primary btn-lg btn-block optionElement" onclick="activeClass(this)"></button>
+            <button type="button" class="btn btn-primary btn-lg btn-block optionElement" onclick="activeClass(this)"></button>
+            <button type="button" class="btn btn-primary btn-lg btn-block optionElement" onclick="activeClass(this)"></button><br>
+<!--             
+            <p class="card-text optionElement" onclick="activeClass(this)">With supporting text below as a natural lead-in to additional content.</p>
+            <p class="card-text optionElement" onclick="activeClass(this)">With supporting text below as a natural lead-in to additional content.</p>
+            <p class="card-text optionElement" onclick="activeClass(this)">With supporting text below as a natural lead-in to additional content.</p>
+            <p class="card-text optionElement" onclick="activeClass(this)">With supporting text below as a natural lead-in to additional content.</p> -->
+            
+            
+            <a href="#" class="btn btn-primary" onclick="nextQuestion()" id="nextQue">Next Question</a>
         </div>
-        <h3>What is 8+4?</h3>
-        <div class="answers">
-            <input type="radio" name="q3" id="q3-a1">8</input>
-            <input type="radio" name="q3" id="q3-a2">15</input>
-            <input type="radio" name="q3" id="q3-a3">12</input><br><br>
-        </div>
-        </div>
-        
-        <button class="btn" onclick="quizApp()">Submit</button>
-        <button class="btn" onclick="diselect()">Reset</button>
-    </div>
+      </div>
+
 </body>
 <script src="app.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </html>
