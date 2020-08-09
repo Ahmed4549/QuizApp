@@ -1,48 +1,128 @@
-function quizApp(){
-var score = 0;
-var right_Ans1 = document.getElementById("q1-a1");
-var option_two = document.getElementById("q1-a2");
-var option_three = document.getElementById("q1-a3");
-if(right_Ans1.checked == true){
-  score++
-  alert("Q1: Right answer")
+var quecount = 0;
+var score =0;
+var questionsArray = [
+  {
+      number: "Question 1",
+      question: "Full Form of RAM is?",
+      answer: "random access memory",
+      options: [
+          "random access memory",
+          "random actual memory",
+          "right access memory",
+          "none of the above",
+      ]
+  },
+  {
+    number: "Question 2",
+      question: "Full Form of CPU is?",
+      answer: "central processing unit",
+      options: [
+          "central program unit",
+          "central processing unit",
+          "control panel unit",
+          "none of the above",
+      ]
+  },
+  {
+    number: "Question 3",
+      question: "Full Form of E-MAIL is?",
+      answer: "electronic mail",
+      options: [
+          "electric mail",
+          "easy mail",
+          "electronic mail",
+          "none of the above",
+      ]
+  },
+  {
+    number: "Question 4",
+      question: "Full Form of LCD is?",
+      answer: "liquid crystal display",
+      options: [
+          "liquid crystal display",
+          "light crystal display",
+          "liquid cold display",
+          "none of the above",
+      ]
+  },
+  {
+    number: "Question 5",
+      question: "Full Form of SEO is?",
+      answer: "none of the above",
+      options: [
+          "safe engine optimization",
+          "secure engine optimization",
+          "secret engine optimization",
+          "none of the above",
+      ]
+  },
+];
+
+function User_Name(){
+  sessionStorage.clear();
+  var UserName1 = document.getElementById("UserName");
+  if(UserName1.value == "" || UserName1.value == " "){
+    alert("Please Enter Your name first");
+  }
+  else {
+    sessionStorage.setItem("name",UserName1.value);
+    startQuiz();
+  }
 }
-else{
-  alert("Q1: Wrong answer")
+function startQuiz(){
+  window.location.href = "index.html";
+}
+function showQuestion(e){
+  //ques number
+  var Que_Number = document.getElementById("QueNumber");
+  Que_Number.innerHTML = questionsArray[e].number;
+  //question
+  var question_element = document.getElementById("questionElement");
+  question_element.innerHTML = questionsArray[e].question;
+  //options
+  var option_Element = document.getElementsByClassName("optionElement");
+  for(var j=0; j < option_Element.length ; j++){
+      option_Element[j].innerHTML = questionsArray[e].options[j];
+  }
+}
+function nextQuestion(){
+  quecount++;
+  validate(quecount);
+  showQuestion(quecount);
+  RemoveActiveClass()
+  setResult();
+  
 }
 
-var option_one = document.getElementById("q2-a1");
-var right_Ans2 = document.getElementById("q2-a2");
-var option_three = document.getElementById("q2-a3");
-if(right_Ans2.checked == true){
-  score++
-  alert("Q2: Right answer")
+function activeClass(f){
+  RemoveActiveClass()
+  f.classList.add("active");
 }
-else{
-  alert("Q2: Wrong answer")
+function RemoveActiveClass(){
+var active= document.getElementsByClassName("active");
+  for(var x =0; x < active.length; x++){
+    active[x].classList.remove("active");
+  }
+}
+function validate(y){
+  var userAns = document.getElementsByClassName("active");
+    if(userAns[0].innerHTML == questionsArray[y].answer){
+        score++;
+    }
+}
+function showResult(){
+  document.getElementById("result") = sessionStorage.getItem("userscore");
+}
+function setResult(){
+  if(quecount == questionsArray.length){
+      window.location.href = "result.html";
+  }
+  var result = document.getElementById("result");
+  sessionStorage.setItem("userscore", score);
 }
 
-var option_one = document.getElementById("q2-a1");
-var option_two = document.getElementById("q2-a2");
-var right_Ans3 = document.getElementById("q3-a3");
-if(right_Ans3.checked == true){
-  score++
-  alert("Q3: Right answer")
-}
-else{
-  alert("Q3: Wrong answer")
-}
-alert("Your total score is: "+score);
-}
+function renderResult(){
+  var cs = sessionStorage.getItem("userscore");
+  result.innerHTML = "You scored "+ cs +" out of 5";
 
-function diselect(){
-  var btn1 = document.getElementById("q1-a1").checked=false;
-  var btn2 = document.getElementById("q1-a2").checked=false;
-  var btn3 = document.getElementById("q1-a3").checked=false;
-  var btn4 = document.getElementById("q2-a1").checked=false;
-  var btn5 = document.getElementById("q2-a2").checked=false;
-  var btn6 = document.getElementById("q2-a3").checked=false;
-  var btn7 = document.getElementById("q3-a1").checked=false;
-  var btn8 = document.getElementById("q3-a2").checked=false;
-  var btn9 = document.getElementById("q3-a3").checked=false;
-}
+} 
